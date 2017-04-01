@@ -12,9 +12,11 @@ class App extends React.Component {
     this.onMouseMove = this.onMouseMove.bind(this)
     this.changeDifficulty = this.changeDifficulty.bind(this)
     this.ballWidth = 80
-    this.difficulties = range(1,11)
-    this.difficulty = this.difficulties[0]
     this.state = { ballPosition: this.center() }
+
+    const difficulties = range(1,11)
+    this.difficulties = difficulties.map(i => <option value={i} key={i}>{i}</option>)
+    this.difficulty = difficulties[0]
   }
   center() {
     return [this.props.containerWidth/2, this.props.containerHeight/2]
@@ -42,11 +44,10 @@ class App extends React.Component {
       height: this.props.containerHeight,
       width: this.props.containerWidth
     }
-    const difficulties = this.difficulties.map(i => <option value={i} key={i}>{i}</option>)
     return (
      <div style={style} onMouseMove={this.onMouseMove}>
         <label>Difficulty:</label>
-        <select id="difficulty" onChange={this.changeDifficulty}>{difficulties}</select>
+        <select id="difficulty" onChange={this.changeDifficulty}>{this.difficulties}</select>
         <Ball position={this.state.ballPosition}
               width={this.ballWidth}
               caught={this.state.ballCaught}
