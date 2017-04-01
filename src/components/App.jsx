@@ -50,8 +50,7 @@ class App extends React.Component {
         <select id="difficulty" onChange={this.changeDifficulty}>{this.difficulties}</select>
         <Ball position={this.state.ballPosition}
               width={this.ballWidth}
-              caught={this.state.ballCaught}
-              styleName='ball'>
+              caught={this.state.ballCaught}>
         </Ball>
      </div>
     )
