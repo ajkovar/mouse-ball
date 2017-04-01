@@ -1,9 +1,13 @@
-.ball {
+.common {
   position: absolute;
-  background-color: #aaa;
-  text-align:center;
+  text-align: center;
   cursor: default;
 }
-.ball.caught {
+.free {
+  composes: common;
+  background-color: #aaa;
+}
+.caught {
+  composes: common;
   background-color: red;
 }
