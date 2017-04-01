@@ -4,12 +4,15 @@ import CSSModules from 'react-css-modules';
 import styles from './Ball.css'
 
 function Ball(props) {
-  let radius = props.width/2
+  let radius = props.size/2
   let classNames = classNamesFn('ball', {caught: props.caught})
   const style = {
     left: props.position[0]-radius,
     top: props.position[1]-radius,
-    width: props.width
+    width: props.size,
+    height: props.size,
+    borderRadius: props.size/2,
+    lineHeight: `${props.size}px`
   }
   return <div style={style} styleName={classNames}>{props.caught ? "Caught" : "Catch me"}</div>
 }

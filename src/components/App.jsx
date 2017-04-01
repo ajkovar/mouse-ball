@@ -11,7 +11,7 @@ class App extends React.Component {
     super(props)
     this.onMouseMove = this.onMouseMove.bind(this)
     this.changeDifficulty = this.changeDifficulty.bind(this)
-    this.ballWidth = 80
+    this.ballSize = 80
     this.state = { ballPosition: this.center() }
 
     const difficulties = range(1,11)
@@ -23,7 +23,7 @@ class App extends React.Component {
   }
   onMouseMove(e) {
     const mouse = [e.pageX, e.pageY]
-    const radius = this.ballWidth/2
+    const radius = this.ballSize/2
     const ballCaught = isWithin(mouse, this.state.ballPosition, radius)
     this.setState({ ballCaught })
     if(!ballCaught) {
@@ -49,7 +49,7 @@ class App extends React.Component {
         <label>Difficulty:</label>
         <select id="difficulty" onChange={this.changeDifficulty}>{this.difficulties}</select>
         <Ball position={this.state.ballPosition}
-              width={this.ballWidth}
+              size={this.ballSize}
               caught={this.state.ballCaught}>
         </Ball>
      </div>
