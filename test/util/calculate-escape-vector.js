@@ -33,8 +33,8 @@ describe('calculateEscapeVector', () => {
     assert.deepEqual([-2, 1], calculateEscapeVector({hunter, prey, center}))
   })
 
-  it(`should return [2, 2] for [${hunter}], [1, 1], [${center}]`, () => {
+  it(`should return [1, 1] for [${hunter}], [0, 2], [${center}]`, () => {
     let prey = [0, 2]
-    assert.deepEqual([2, 2], calculateEscapeVector({hunter, prey, center}))
+    assert.deepEqual([1, 1], calculateEscapeVector({hunter, prey, center}))
   })
 })
